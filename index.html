@@ -7,7 +7,7 @@
     <!--[if lte IE 8]>
       <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
     <![endif]-->
-   
+
     <style>
     html, body { height: 100%; margin: 0px; }
     #map { height: 100%; }
@@ -17,26 +17,20 @@
     <div id="map"></div>
 
     <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+
     <script>
     var attribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>';
 
     var map = L.map('map').setView([48.98337, -123.05855], 13);
     
-    var popup = L.popup();
-    
-    map.on('click', function onClick(e){
-      popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(map);
-    });
-    
-    L.tileLayer('http://{s}.tile.cloudmade.com/61d2e95f748e4d1da82b12d461f5174e/997/256/{z}/{x}/{y}.png', {
+    L.tileLayer('http://{s}.tile.cloudmade.com/!!!APIKEY!!!/997/256/{z}/{x}/{y}.png', {
       attribution: attribution,
       maxZoom: 18
     }).addTo(map);
 
     var marker = L.marker([48.98337, -123.05855]).addTo(map);
+    var markerHtml = 'This place is weird';
+    marker.bindPopup(markerHtml);
     </script>
   </body>
 </html>
